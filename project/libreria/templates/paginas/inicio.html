@@ -10,15 +10,12 @@
             class="h-100 p-5 text-white bg-primary border rounded-3"
         >
             <h2>Bienvenidos a la librería</h2>
-            <p>
-                Empezar a ingresar libros
-            </p>
-            <p class="lead">
-            <button
-                class="btn btn-outline-primary"
-                type="button"
-            >
-                Empezar
+            <button class="btn btn-outline-primary" type="button">
+                <p>
+                    <a class="text-black" href="{% url 'libreria:libros' %}">Empezar a ingresar libros</a>
+                </p>
+                <p class="lead">
+                
             </button>
         </div>
     </div>

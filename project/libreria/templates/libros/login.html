@@ -1,0 +1,18 @@
+{% load static %}
+
+{% block content %}
+    
+<form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{% url 'libreria:inicio' %}">
+    <table class="table table-borderless">
+        {{ form.as_table }}
+        <a href="{% url 'libreria:register' %}" class="btn-danger" >Registrar Usuario</a>
+    </table>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+        <a href="{% url 'libreria:inicio' %}" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>
+
+{% endblock content %}

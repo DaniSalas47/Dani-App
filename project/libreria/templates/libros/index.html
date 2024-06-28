@@ -1,32 +1,21 @@
 {% extends "base.html" %}
 
-{% block titulo %}  Lista de libros  {% endblock %}
+{% block titulo %} Lista de libros {% endblock %}
 
 {% block contenido %}
 
 <div class="card">
     <div class="card-header">
-        
-        <a
-            name=""
-            id=""
-            class="btn btn-success"
-            href="{% url 'crear' %}"
-            role="button"
-            >Agregar nuevo libro</a
-        >
-        
+
+        <a name="" id="" class="btn btn-success" href="{% url 'libreria:crear' %}" role="button">Agregar nuevo libro</a>
+
 
     </div>
     <div class="card-body">
         <h4 class="card-title">Libros</h4>
-        
-        <div
-            class="table-responsive"
-        >
-            <table
-                class="table table-primary"
-            >
+
+        <div class="table-responsive">
+            <table class="table table-primary">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
@@ -44,35 +33,24 @@
                         <td>{{ libro.id }}</td>
                         <td>{{ libro.titulo }}</td>
                         <td>
-                        <img src="{{ libro.imagen.url }}" height="100" />
-                           
-                        
+                            {% if libro.imagen %}
+                            <img src="{{ libro.imagen.url }}" height="100" alt="{{libro.titulo}}" />
+                            {% else %}
+                            No hay imagen disponible
+                            {% endif %}
                         </td>
                         <td>{{ libro.descripcion }}</td>
-                        <td> <a
-                            name=""
-                            id=""
-                            class="btn btn-info"
-                            href="{% url 'editar' %}"
-                            role="button"
-                            >Editar</a
-                        >
-                         | <a
-                            name=""
-                            id=""
-                            class="btn btn-danger"
-                            href="#"
-                            role="button"
-                            >Borrar</a
-                         >
-                          </td>
+                        <td> <a name="" id="" class="btn btn-info" href="{% url 'libreria:editar' %}"
+                                role="button">Editar</a>
+                            | <a name="" id="" class="btn btn-danger" href="#" role="button">Borrar</a>
+                        </td>
                     </tr>
                     {% endfor %}
 
                 </tbody>
             </table>
         </div>
-        
+
     </div>
     <div class="card-footer text-muted">Footer</div>
 </div>
